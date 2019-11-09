@@ -12,3 +12,16 @@ elementAt [] _ = error "Index error"
 elementAt (_:xs) n
   | n < 1      = error "Index error"
   | otherwise  = elementAt xs (n-1)
+
+myLength :: [a] -> Int
+myLength [] = 0
+myLength (x:xs) = 1 + myLength xs
+
+myReverse :: [a] -> [a]
+myReverse [] = []
+myReverse (x:xs) = (myReverse xs) ++ (listify x)
+  where
+    listify x = [x]
+
+isPalindrome :: [a] -> Bool
+isPalindrome _ = False
