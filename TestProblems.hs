@@ -24,9 +24,9 @@ tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution4" test4_1,
                    TestLabel "solution4" test4_2,
                    TestLabel "solution5" test5_1,
-                   TestLabel "solution6" test6_1]
---                   TestLabel "solution6" test6_2,
---                   TestLabel "solution6" test6_3]
+                   TestLabel "solution6" test6_1,
+                   TestLabel "solution6" test6_2,
+                   TestLabel "solution6" test6_3]
 
 main::IO Counts
 main = do

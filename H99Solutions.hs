@@ -23,5 +23,8 @@ myReverse (x:xs) = (myReverse xs) ++ (listify x)
   where
     listify x = [x]
 
-isPalindrome :: [a] -> Bool
-isPalindrome _ = False
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome [] = True
+isPalindrome [_] = True
+isPalindrome xs = (head xs) == (last xs) && (isPalindrome . tail . init) xs
+
