@@ -1,4 +1,5 @@
 module H99Solutions where
+import Data.List ( group )
 
 myLast :: [a] -> a
 myLast = head . reverse
@@ -33,3 +34,6 @@ data NestedList a = Elem a | List [NestedList a]
 myFlatten :: NestedList a -> [a]
 myFlatten (Elem x) = [x]
 myFlatten (List x) = concatMap myFlatten x
+
+myCompress :: String -> String
+myCompress xs = map head (group xs)

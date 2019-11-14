@@ -17,6 +17,7 @@ test6_1 = TestCase (assertEqual "Solution6 does not work" False (isPalindrome [1
 test6_2 = TestCase (assertEqual "Solution6 does not work" True (isPalindrome "madamimadam"))
 test6_3 = TestCase (assertEqual "Solution6 does not work" True (isPalindrome [1,2,4,8,16,8,4,2,1]))
 test7_1 = TestCase (assertEqual "Solution7 does not work" [1,2,3,4,5] (myFlatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])))
+test8_1 = TestCase (assertEqual "Solution8 does not work" "abcade" (myCompress ("aaaabccaadeeee")))
 
 tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution2" test2,
@@ -28,7 +29,8 @@ tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution6" test6_1,
                    TestLabel "solution6" test6_2,
                    TestLabel "solution6" test6_3,
-                   TestLabel "solution7" test7_1]
+                   TestLabel "solution7" test7_1,
+                   TestLabel "solution8" test8_1]
 
 main::IO Counts
 main = do
