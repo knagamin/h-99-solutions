@@ -37,3 +37,10 @@ myFlatten (List x) = concatMap myFlatten x
 
 myCompress :: String -> String
 myCompress xs = map head (group xs)
+
+myPack :: [Char] -> [String]
+myPack xs = ["aaaa","b","cc","aa","d","eeee"]
+
+encode :: String -> [(Int, Char)]
+encode = map (\s -> (length s, head s)) . group
+

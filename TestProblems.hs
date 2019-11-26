@@ -18,6 +18,9 @@ test6_2 = TestCase (assertEqual "Solution6 does not work" True (isPalindrome "ma
 test6_3 = TestCase (assertEqual "Solution6 does not work" True (isPalindrome [1,2,4,8,16,8,4,2,1]))
 test7_1 = TestCase (assertEqual "Solution7 does not work" [1,2,3,4,5] (myFlatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])))
 test8_1 = TestCase (assertEqual "Solution8 does not work" "abcade" (myCompress ("aaaabccaadeeee")))
+test8_2 = TestCase (assertEqual "Solution8 does not work" "" (myCompress ("")))
+test9_1 = TestCase (assertEqual "Solution8 does not work" ["aaaa","b","cc","aa","d","eeee"] (myPack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']))
+test10_1 = TestCase (assertEqual "Solution10 does not work" [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')] (encode "aaaabccaadeeee"))
 
 tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution2" test2,
@@ -30,7 +33,9 @@ tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution6" test6_2,
                    TestLabel "solution6" test6_3,
                    TestLabel "solution7" test7_1,
-                   TestLabel "solution8" test8_1]
+                   TestLabel "solution8" test8_1,
+                   TestLabel "solution8" test8_2,
+                   TestLabel "solution9" test9_1]
 
 main::IO Counts
 main = do
