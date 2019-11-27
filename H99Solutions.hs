@@ -41,6 +41,19 @@ myCompress xs = map head (group xs)
 myPack :: [Char] -> [String]
 myPack xs = ["aaaa","b","cc","aa","d","eeee"]
 
-encode :: String -> [(Int, Char)]
+encode :: Eq a => [a] -> [(Int, a)]
 encode = map (\s -> (length s, head s)) . group
 
+data ListItem a = Single a | Multiple Int a
+    deriving (Show)
+
+encodeModified :: Eq a => [a] -> [ListItem a]
+encodeModified = map listItemize . encode
+    where
+      listItemize (1, x) = Single x
+      listItemize (n, x) = Multiple n x
+
+instance Eq a => Eq (ListItem a) where
+    (Single x) == (Single y) = x == y
+    (Multiple n x) == (Multiple m y) = x == y && n == m
+    _ == _ = False
