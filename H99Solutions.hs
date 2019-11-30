@@ -57,3 +57,23 @@ instance Eq a => Eq (ListItem a) where
     (Single x) == (Single y) = x == y
     (Multiple n x) == (Multiple m y) = x == y && n == m
     _ == _ = False
+
+decodeModified :: Eq a => [ListItem a] -> [a]
+decodeModified = concatMap decodeHelper
+    where
+        decodeHelper (Single x) = [x]
+        decodeHelper (Multiple n x) = replicate n x
+
+-- | Run Length Decoding
+--
+-- >>> decode [(3,'a'),(2,'b')]
+-- "aaabb"
+decode :: Eq a => [(Int, a)] -> [a]
+decode = concatMap rl2str
+
+-- | Run Length Decoding
+--
+-- >>> rl2str (3,'a')
+-- "aaa"
+rl2str :: Eq a => (Int, a) -> [a]
+rl2str (n,c) = replicate n c

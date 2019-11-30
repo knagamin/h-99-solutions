@@ -22,6 +22,7 @@ test8_2 = TestCase (assertEqual "Solution8 does not work" "" (myCompress ""))
 test9_1 = TestCase (assertEqual "Solution8 does not work" ["aaaa","b","cc","aa","d","eeee"] (myPack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']))
 test10_1 = TestCase (assertEqual "Solution10 does not work" [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')] (encode "aaaabccaadeeee"))
 test11_1 = TestCase (assertEqual "Solution11 does not work" [Multiple 4 'a',Single 'b',Multiple 2 'c',Multiple 2 'a',Single 'd',Multiple 4 'e'] (encodeModified "aaaabccaadeeee"))
+test12_1 = TestCase (assertEqual "Solution11 does not work" "aaaabccaadeeee" (decodeModified [Multiple 4 'a',Single 'b',Multiple 2 'c',Multiple 2 'a',Single 'd',Multiple 4 'e']))
 
 tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution2" test2,
