@@ -1,5 +1,6 @@
 module H99Solutions where
 import Data.List ( group )
+import Data.List.Split ( chunksOf )
 
 myLast :: [a] -> a
 myLast = head . reverse
@@ -77,3 +78,16 @@ decode = concatMap rl2str
 -- "aaa"
 rl2str :: Eq a => (Int, a) -> [a]
 rl2str (n,c) = replicate n c
+
+dupli :: Eq a => [a] -> [a]
+dupli = concatMap (replicate 2)
+
+repli :: Eq a => [a] -> Int -> [a]
+repli xs n = concatMap (replicate n) xs
+
+dropEvery :: Eq a => [a] -> Int -> [a]
+dropEvery xs n = concatMap dropHelpler (chunksOf n xs)
+    where
+        dropHelpler xs
+            | length xs == n = init xs
+            | otherwise      = xs

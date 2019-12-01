@@ -22,7 +22,10 @@ test8_2 = TestCase (assertEqual "Solution8 does not work" "" (myCompress ""))
 test9_1 = TestCase (assertEqual "Solution8 does not work" ["aaaa","b","cc","aa","d","eeee"] (myPack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']))
 test10_1 = TestCase (assertEqual "Solution10 does not work" [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')] (encode "aaaabccaadeeee"))
 test11_1 = TestCase (assertEqual "Solution11 does not work" [Multiple 4 'a',Single 'b',Multiple 2 'c',Multiple 2 'a',Single 'd',Multiple 4 'e'] (encodeModified "aaaabccaadeeee"))
-test12_1 = TestCase (assertEqual "Solution11 does not work" "aaaabccaadeeee" (decodeModified [Multiple 4 'a',Single 'b',Multiple 2 'c',Multiple 2 'a',Single 'd',Multiple 4 'e']))
+test12_1 = TestCase (assertEqual "Solution12 does not work" "aaaabccaadeeee" (decodeModified [Multiple 4 'a',Single 'b',Multiple 2 'c',Multiple 2 'a',Single 'd',Multiple 4 'e']))
+test14_1 = TestCase (assertEqual "Solution14 does not work" [1,1,2,2,3,3] (dupli [1,2,3]))
+test15_1 = TestCase (assertEqual "Solution15 does not work" "aaabbbccc" (repli "abc" 3))
+test16_1 = TestCase (assertEqual "Solution16 does not work" "abdeghk" (dropEvery "abcdefghik" 3))
 
 tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution2" test2,
@@ -39,7 +42,11 @@ tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution8" test8_2,
                    TestLabel "solution9" test9_1,
                    TestLabel "solution10" test10_1,
-                   TestLabel "solution11" test11_1]
+                   TestLabel "solution11" test11_1,
+                   TestLabel "solution12" test12_1,
+                   TestLabel "solution14" test14_1,
+                   TestLabel "solution15" test15_1,
+                   TestLabel "solution16" test16_1]
 
 main::IO Counts
 main = do
