@@ -1,3 +1,3 @@
 .PHONY: test
 test:
-	@stack runghc TestProblems.hs
+	@stack runhaskell TestProblems.hs

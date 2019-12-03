@@ -1,5 +1,6 @@
 module H99Solutions where
 import Data.List ( group )
+import Data.List ( intersect )
 import Data.List.Split ( chunksOf )
 
 myLast :: [a] -> a
@@ -91,3 +92,9 @@ dropEvery xs n = concatMap dropHelpler (chunksOf n xs)
         dropHelpler xs
             | length xs == n = init xs
             | otherwise      = xs
+
+split :: Eq a => [a] -> Int -> ([a], [a])
+split xs n = (take n xs, drop n xs)
+
+slice :: Eq a => [a] -> Int -> Int -> [a]
+slice xs min max = (take max xs) `intersect` (drop (min-1) xs)

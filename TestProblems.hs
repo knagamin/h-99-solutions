@@ -26,6 +26,8 @@ test12_1 = TestCase (assertEqual "Solution12 does not work" "aaaabccaadeeee" (de
 test14_1 = TestCase (assertEqual "Solution14 does not work" [1,1,2,2,3,3] (dupli [1,2,3]))
 test15_1 = TestCase (assertEqual "Solution15 does not work" "aaabbbccc" (repli "abc" 3))
 test16_1 = TestCase (assertEqual "Solution16 does not work" "abdeghk" (dropEvery "abcdefghik" 3))
+test17_1 = TestCase (assertEqual "Solution17 does not work" ("abc", "defghik") (split "abcdefghik" 3))
+test18_1 = TestCase (assertEqual "Solution18 does not work" "cdefg" (slice ['a','b','c','d','e','f','g','h','i','k'] 3 7))
 
 tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution2" test2,
@@ -46,7 +48,9 @@ tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution12" test12_1,
                    TestLabel "solution14" test14_1,
                    TestLabel "solution15" test15_1,
-                   TestLabel "solution16" test16_1]
+                   TestLabel "solution16" test16_1,
+                   TestLabel "solution16" test17_1,
+                   TestLabel "solution16" test18_1]
 
 main::IO Counts
 main = do
