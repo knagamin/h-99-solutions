@@ -104,3 +104,7 @@ rotate xs n
     | n == 0    = xs
     | n > 0     = drop n xs ++ take n xs
     | otherwise = rotate xs (length(xs) + n)
+
+removeAt :: Eq a => Int -> [a] -> (a, [a])
+removeAt n xs = let ch = xs !! (n-1)
+                in (ch, [ x | x <- xs, x /= ch])
