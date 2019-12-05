@@ -98,3 +98,9 @@ split xs n = (take n xs, drop n xs)
 
 slice :: Eq a => [a] -> Int -> Int -> [a]
 slice xs min max = (take max xs) `intersect` (drop (min-1) xs)
+
+rotate :: Eq a => [a] -> Int -> [a]
+rotate xs n
+    | n == 0    = xs
+    | n > 0     = drop n xs ++ take n xs
+    | otherwise = rotate xs (length(xs) + n)
