@@ -31,6 +31,7 @@ test18_1 = TestCase (assertEqual "Solution18 does not work" "cdefg" (slice ['a',
 test19_1 = TestCase (assertEqual "Solution19-1 does not work" "defghabc" (rotate ['a','b','c','d','e','f','g','h'] 3))
 test19_2 = TestCase (assertEqual "Solution19-2 does not work" "ghabcdef" (rotate ['a','b','c','d','e','f','g','h'] (-2)))
 test20_1 = TestCase (assertEqual "Solution20-1 does not work" ('b',"acd") (removeAt 2 "abcd"))
+test21_1 = TestCase (assertEqual "Solution21-1 does not work" "aXbcd" (insertAt 'X' "abcd" 2))
 
 
 tests = TestList [ TestLabel "solution1" test1,
@@ -57,7 +58,8 @@ tests = TestList [ TestLabel "solution1" test1,
                    TestLabel "solution18" test18_1,
                    TestLabel "solution19" test19_1,
                    TestLabel "solution19" test19_2,
-                   TestLabel "solution19" test20_1]
+                   TestLabel "solution20" test20_1,
+                   TestLabel "solution21" test21_1]
 
 main::IO Counts
 main = do

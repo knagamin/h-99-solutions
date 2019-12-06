@@ -1,6 +1,5 @@
 module H99Solutions where
-import Data.List ( group )
-import Data.List ( intersect )
+import Data.List ( group, intersect )
 import Data.List.Split ( chunksOf )
 
 myLast :: [a] -> a
@@ -22,14 +21,14 @@ myLength (x:xs) = 1 + myLength xs
 
 myReverse :: [a] -> [a]
 myReverse [] = []
-myReverse (x:xs) = (myReverse xs) ++ (listify x)
+myReverse (x:xs) = myReverse xs ++ listify x
   where
     listify x = [x]
 
 isPalindrome :: (Eq a) => [a] -> Bool
 isPalindrome [] = True
 isPalindrome [_] = True
-isPalindrome xs = (head xs) == (last xs) && (isPalindrome . tail . init) xs
+isPalindrome xs = head xs == last xs && (isPalindrome . tail . init) xs
 
 data NestedList a = Elem a | List [NestedList a]
 
@@ -40,7 +39,7 @@ myFlatten (List x) = concatMap myFlatten x
 myCompress :: String -> String
 myCompress xs = map head (group xs)
 
-myPack :: [Char] -> [String]
+myPack :: String -> [String]
 myPack xs = ["aaaa","b","cc","aa","d","eeee"]
 
 encode :: Eq a => [a] -> [(Int, a)]
@@ -97,14 +96,24 @@ split :: Eq a => [a] -> Int -> ([a], [a])
 split xs n = (take n xs, drop n xs)
 
 slice :: Eq a => [a] -> Int -> Int -> [a]
-slice xs min max = (take max xs) `intersect` (drop (min-1) xs)
+slice xs min max = take max xs `intersect` drop (min-1) xs
 
 rotate :: Eq a => [a] -> Int -> [a]
 rotate xs n
     | n == 0    = xs
     | n > 0     = drop n xs ++ take n xs
-    | otherwise = rotate xs (length(xs) + n)
+    | otherwise = rotate xs (length xs + n)
 
 removeAt :: Eq a => Int -> [a] -> (a, [a])
 removeAt n xs = let ch = xs !! (n-1)
                 in (ch, [ x | x <- xs, x /= ch])
+
+-- | Insert element into specific position in list
+--
+-- >>> insertAt 'b' "ac" 2
+-- "abc"
+--
+-- >>> insertAt 'b' "ac" 1
+-- "bac"
+insertAt :: Eq a => a -> [a] -> Int -> [a]
+insertAt ch xs n = take (n-1) xs ++ (ch : drop (n-1) xs)
