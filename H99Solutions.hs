@@ -117,3 +117,13 @@ removeAt n xs = let ch = xs !! (n-1)
 -- "bac"
 insertAt :: Eq a => a -> [a] -> Int -> [a]
 insertAt ch xs n = take (n-1) xs ++ (ch : drop (n-1) xs)
+
+
+-- | Test for range
+--
+-- >>> range 4 9
+-- [4,5,6,7,8,9]
+range :: Int -> Int -> [Int]
+range min max = [min..max]
+
+
